@@ -1,0 +1,11 @@
+<h2>Détails pour {{ countryName }}</h2>
+@if(countryDetails){
+    <div>
+        <p><strong>Nombre total de participations :</strong> {{ countryDetails.participations.length }}</p>
+    </div>
+}
+@if(!countryDetails){
+    <div>
+        <p>Aucun détail disponible pour ce pays.</p>
+    </div>
+}

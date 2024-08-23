@@ -19,7 +19,7 @@ export class OlympicService {
       tap((value) => this.olympics$.next(value)),
       catchError((error) => {
         console.error('Error when loading Olympics data : ',error);
-        this.olympics$.next([]); // ici on ne peut pas avoir un cas sans values, pour faciliter le traitement on renvoie un tableau vide lors d'erreur.
+        this.olympics$.next([]);
         return of([]);
       })
     );

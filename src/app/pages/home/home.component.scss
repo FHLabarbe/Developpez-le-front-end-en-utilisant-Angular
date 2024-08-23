@@ -1,0 +1,43 @@
+
+.main-frame {
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+.title-rectangle {
+    background-color: blue;
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 16px;
+    margin: 10px auto;
+}
+
+/* Titre principal */
+h2 {
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    color: white;
+    padding: 10px;
+    background-color: red;
+    border-radius: 12px;
+    text-align: center;
+}
+  
+/* Conteneur du graphique */
+.chart-container {
+    width: 80%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+  
+/* Styles pour ngx-charts */
+ngx-charts-pie-chart {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
