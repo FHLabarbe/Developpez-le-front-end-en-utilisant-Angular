@@ -1,41 +1,66 @@
 
-.main-frame {
+.main-container {
     width: 100%;
-    height: 100vh;
+    height: 100%;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-}
-.title-rectangle {
-    background-color: blue;
-    display: inline-block;
-    padding: 5px 10px;
-    border-radius: 16px;
-    margin: 10px auto;
+    gap:0.5em;
 }
 
-/* Titre principal */
+.statistics-container {
+    display:flex;
+    justify-content: center;
+    gap: 3em;
+    flex-wrap: wrap;
+}
+
+.statistics-item {
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(152,152,152);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 0;
+    padding: 0em 1em;
+    border-radius: 6px;
+    border-width: 2px;
+    border-color: green;
+    border: 2px solid rgb(57,129,141)
+}
+
+.statistics{
+    color: black;
+    font-weight: bold;
+}
+
+.title-rectangle {
+    display: inline-block;
+    padding: 0em 5px;
+    border-radius: 16px;
+    margin: 10px auto;
+    background-color: rgb(57,129,141);
+}
+
 h2 {
     font-family:Arial, Helvetica, sans-serif;
     font-size: 20px;
     color: white;
     padding: 10px;
-    background-color: red;
+    font-weight:200;
     border-radius: 12px;
     text-align: center;
 }
   
-/* Conteneur du graphique */
 .chart-container {
     width: 80%;
     max-width: 800px;
-    margin: 0 auto;
+    margin: auto auto;
     padding: 20px;
 }
   
-/* Styles pour ngx-charts */
 ngx-charts-pie-chart {
     display: block;
     width: 100%;

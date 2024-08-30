@@ -6,3 +6,17 @@
   align-items: center;
   flex-direction: column;
 }
+
+/* Bouton retour */
+.back-button {
+  display: inline-block;
+  padding: 10px 20px;
+  margin-bottom: 20px;
+  font-size: 12px;
+  background-color: rgb(57,129,141);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-transform: uppercase;
+}

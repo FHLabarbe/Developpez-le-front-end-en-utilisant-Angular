@@ -1,14 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Observable, of, Subscription } from 'rxjs';
 import { OlympicService } from 'src/app/core/services/olympic.service';
-import { Olympic } from 'src/app/core/models/Olympic';
+import { MedalData,Olympic } from 'src/app/core/models';
 import { Router } from '@angular/router';
 
-// Interface pour les données du graphique ngx charts
-interface MedalData {
-  name: string; // Nom du pays
-  value: number; // Nombre total de médailles
-}
 
 @Component({
   selector: 'app-home',
@@ -25,7 +20,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   public legendTitle: string = 'Medals per Country';
   public isLoading: boolean = true;
   public subscribtion!: Subscription;
-
+  public scheme: string = 'cool';
 
   constructor(private olympicService: OlympicService, private router: Router) {}
   ngOnDestroy(): void {
@@ -34,15 +29,6 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.loadMedalData();
-
-  }
-
-  public scheme: string = 'cool';
-
-  onHover(event: any): void {
-    /* TODO
-    se servir de getParticipationCountForCountry afin de remplir l'encart Number of JOs
-    */
   }
 
   onSelect(event: any): void {
@@ -54,8 +40,23 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.olympics$ = this.olympicService.getOlympics();
     this.subscribtion = this.olympics$.subscribe(data => {
       this.medalData = this.transformData(data);
+      this.numberOfJos = this.calculateNumberOfJos(data);
       this.isLoading = false;
     });
+  }
+
+  onResize(event: any){
+    this.graphGrid = [event.target.innerWidth/1.30,400];
+  }
+
+  calculateNumberOfJos(data: Olympic[]): number {
+    const uniqueYears = new Set<number>();
+    data.forEach(country => {
+      country.participations.forEach(participation => {
+        uniqueYears.add(participation.year);
+      });
+    });
+    return uniqueYears.size;
   }
 
   public getParticipationCountForCountry(countryName: string): number {
@@ -71,9 +72,6 @@ export class HomeComponent implements OnInit, OnDestroy {
     });
     return 0;
   }
-  
-  
-  
 
   transformData(data: Olympic[]): MedalData[]{
     this.numberOfCountries = data.length;

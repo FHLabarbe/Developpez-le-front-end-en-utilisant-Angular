@@ -1,22 +1,31 @@
-<div class="main-frame">
-<div class="title-rectangle">
-  <h2>Medals per Country</h2>
-</div>
-<div class="statistics-block" *ngIf="olympics$ | async as olympics">
-  <p>Number of countries {{numberOfCountries}}</p>
-</div>
-<div class="chart-container">
+<div class="main-container">
+  <div class="title-rectangle">
+    <h2>Medals per Country</h2>
+  </div>
+  <div class="statistics-container" *ngIf="olympics$ | async as olympics">
+    <div class="statistics-item">
+      <p>Number of JOs</p>
+      <p class="statistics">{{numberOfJos}}</p>
+    </div>
+    <div class="statistics-item">
+      <p>Number of countries</p> 
+      <p class="statistics">{{numberOfCountries}}</p> 
+    </div>
+  </div>
+  <div class="chart-container">
     <div *ngIf="olympics$ | async as olympics">
-        <ngx-charts-pie-chart
+      <ngx-charts-pie-chart
         [view]="graphGrid"
         [scheme]="scheme"
         [results]="medalData"
         [gradient]="false"
         (select)="onSelect($event)"
-        >
-        </ngx-charts-pie-chart>
+        [labels]="true"
+        (window:resize)="onResize($event)"
+      >
+      </ngx-charts-pie-chart>
+    </div>
   </div>
-</div>
 </div>
 
 

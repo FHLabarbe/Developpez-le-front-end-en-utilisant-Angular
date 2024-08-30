@@ -1,0 +1,99 @@
+.main-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap:0.5em;
+}
+
+.statistics-container {
+    display:flex;
+    justify-content: center;
+    gap: 3em;
+    flex-wrap: wrap;
+}
+
+.statistics-item {
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(152,152,152);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 0;
+    padding: 0em 1em;
+    border-radius: 6px;
+    border-width: 2px;
+    border-color: green;
+    border: 2px solid rgb(57,129,141)
+}
+
+.statistics{
+    color: black;
+    font-weight: bold;
+}
+
+/* Style de base du tooltip */
+.ngx-charts-tooltip {
+    background-color: red; /* Fond du tooltip */
+    color: #06d764; /* Couleur du texte */
+    padding: 8px 12px; /* Espacement à l'intérieur du tooltip */
+    border-radius: 4px; /* Coins arrondis */
+    font-size: 14px; /* Taille de la police */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); /* Ombre */
+  }
+
+.ngx-charts-axis-label {
+    fill: #ff0000; /* Change la couleur du texte */
+    font-size: 14px; /* Change la taille de la police */
+    font-weight: bold; /* Change la graisse de la police */
+}
+
+.title-rectangle {
+    display: inline-block;
+    padding: 0em 5px;
+    border-radius: 16px;
+    margin: 10px auto;
+    background-color: rgb(57,129,141);
+}
+
+h2 {
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    color: white;
+    padding: 10px;
+    font-weight:200;
+    border-radius: 12px;
+    text-align: center;
+}
+  
+.chart-container {
+    width: 80%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+  
+ngx-charts-pie-chart {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.back-button-container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.back-button {
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    font-size: 12px;
+    background-color: rgb(57,129,141);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-transform: uppercase;
+  }

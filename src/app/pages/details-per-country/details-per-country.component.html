@@ -1,11 +1,43 @@
-<h2>Détails pour {{ countryName }}</h2>
-@if(countryDetails){
-    <div>
-        <p><strong>Nombre total de participations :</strong> {{ countryDetails.participations.length }}</p>
+<div *ngIf="countryDetails">
+  <div class="main-container">
+    <div class="title-rectangle">
+      <h2>{{countryName}}</h2>
     </div>
-}
-@if(!countryDetails){
+    <div class="statistics-container">
+        <div class="statistics-item">
+          <p>Number of entries</p>
+          <p class="statistics">{{totalParticipations}}</p>
+        </div>
+        <div class="statistics-item">
+          <p>Total number medals</p> 
+          <p class="statistics">{{totalMedals}}</p> 
+        </div>
+        <div class="statistics-item">
+          <p>Total number of athletes</p>
+          <p class="statistics">{{totalAthletes}}</p>
+        </div>
+    </div>
+  </div>
+  <div class="chart-container">
+    <ngx-charts-line-chart
+      [view]="graphGrid"
+      [results]="medalData"
+      [xAxis]="true"
+      [yAxis]="true"
+      [showGridLines]="true"
+      [autoScale]="true"
+      (window:resize)="onResize($event)"
+      [showXAxisLabel]="true"
+      [xAxisLabel]="'Dates'"
+      >
+    </ngx-charts-line-chart>
+  </div>
+</div>
+<div *ngIf="!countryDetails">
     <div>
         <p>Aucun détail disponible pour ce pays.</p>
     </div>
-}
+</div>
+<div class="back-button-container">
+  <button class="back-button" (click)="goBack()">Retour</button>
+</div>
