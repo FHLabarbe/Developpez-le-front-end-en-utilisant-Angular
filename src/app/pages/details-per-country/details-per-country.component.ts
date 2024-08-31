@@ -59,8 +59,17 @@ export class DetailsPerCountryComponent implements OnInit, OnDestroy {
     }));
   }
 
-  onResize(event: any){
-    this.graphGrid = [event.target.innerWidth/1.30,400];
+  onResize(event: any): void{
+    let width = window.innerWidth;
+    if (width > 1200) {
+      width = width / 1.5;
+    } else if (width > 800) {
+      width = width / 1.3;
+    } else {
+      width = width / 1.1;
+    }
+    const height = width / 2;
+    this.graphGrid = [width, height];
   }
   
   calculateTotals(countryDetails: Olympic): void {
